@@ -10,6 +10,7 @@
   </head>
 
   <body>
+  <%= content_tag :span , flash.notice, if flash.notice ; end%>
     <%= yield %>
     <%= debug(params)%>
   </body>

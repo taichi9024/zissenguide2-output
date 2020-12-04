@@ -1,5 +1,4 @@
 class StaffMember < ApplicationRecord
-    has_secure_password
 
     def password=(raw_pass)
         if raw_pass.kind_of?(String)
@@ -7,5 +6,9 @@ class StaffMember < ApplicationRecord
         else
             password = nil
         end
+    end
+
+    def active?
+        !suspend? && start_date < Time.current
     end
 end

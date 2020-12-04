@@ -9,6 +9,7 @@ class Staff::SessionsController < ApplicationController
       staff_member = StaffMember.find_by("email = ?", @form.email)  
       Staff::Authenticator.new(staff_member).authenticate(@form.password)
       session[:staff_id] = staff_member.id
+      session[:time_id]  = Time.current
       logger.debug "iiiiiiiiiii#{session[:staff_id]}"
       flash.notice = "ログインしました"
       redirect_to :staff_root

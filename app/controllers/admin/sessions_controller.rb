@@ -1,4 +1,5 @@
 class Admin::SessionsController < ApplicationController
+
   def new
     @form = Admin::LoginForm.new
   end
