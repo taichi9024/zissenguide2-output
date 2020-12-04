@@ -1,0 +1,8 @@
+<h1 class="text-center">職員管理</h1>
+<% if current_admin_member %>
+  <%= link_to "ログアウト", :admin_session, method: :delete, class:"text-right" %>
+  <% else %>
+  <%= link_to "ログイン", :admin_login %>
+<% end %>
+<h4><%= link_to "職員一覧", :admin_staff_members, class:" text-right btn btn-primary"%></h4>
+<h4><%= link_to "職員新規作成", :new_admin_staff_member, class:" text-right btn btn-primary"%></h4>

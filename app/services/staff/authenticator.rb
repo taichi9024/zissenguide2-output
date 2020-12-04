@@ -4,7 +4,7 @@ class Staff::Authenticator
     end
 
     def authenticate(password)
-        @staff_member.password
+        @staff_member.hash_password
         !@staff_member.suspend?
         BCrypt::Password.create(@staff_member.hash_password) == password
     end

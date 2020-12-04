@@ -1,0 +1,10 @@
+<div class=" mt-3 mb-5">
+<% @staff_members.each do |staff| %>
+    <span>ID: <%= staff.id%></span><br>
+    <span>email: <%= staff.email%></span><br>
+    <span>name: <%=link_to staff.name,  admin_staff_member_path(staff) %></span><br>
+    <span>name_kana: <%= staff.name_kana%></span><br>
+    <span>start_date: <%= staff.start_date%></span><br>
+    <span>suspend: <%= staff.suspend%></span><br>
+<% end %>
+</div>
