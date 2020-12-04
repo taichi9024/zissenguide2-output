@@ -1,4 +1,5 @@
 class Staff::SessionsController < Staff::Base
+  skip_before_action :time_logout
   def new
     @form = Staff::LoginForm.new
   end

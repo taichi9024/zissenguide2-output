@@ -1,4 +1,10 @@
-<div class="mt-3 mb-5 ml-5">
-<span>type: <%= @staff_event.type %></span><br>
-<span>time: <%= @staff_event.created_at %></span><br>
+<h1 class="text-center">職員のログイン状況</h1>
+  <% @staff_events.each do |event|%>
+    <div class="mb-3 ml-5">
+    <span>name: <%= event.member.name%></span><br>
+    <span>ID: <%= event.id%></span><br>
+    <span>type: <%= event.type%></span><br>
+    <span>time: <%= event.created_at%></span><br>
+    </div>
+  <% end %>
 </div>

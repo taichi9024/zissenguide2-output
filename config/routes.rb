@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :staff do
+    get 'passwords/edit'
+  end
   namespace :admin do
     get 'staff_events/index'
   end
@@ -19,5 +22,6 @@ Rails.application.routes.draw do
     post "/session" => "sessions#create", as: :session
     delete "/session" => "sessions#destroy"
     resource :account , only:[:edit, :update]
+    resource :password, only:[:edit, :update]
   end
 end

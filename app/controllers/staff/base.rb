@@ -21,6 +21,7 @@ class Staff::Base < ApplicationController
             session[:time_id] = Time.current
         else
             session.delete(:staff_id)
+            session.delete(:time_id)
             flash.notice = "セッション時間超過"
             redirect_to :staff_login
         end

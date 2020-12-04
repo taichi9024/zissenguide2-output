@@ -4,6 +4,7 @@ class Admin::StaffEventsController < ApplicationController
   end
 
   def detail
-    @staff_event = StaffEvent.find_by(id: params[:staff_member_id])
+    @staff_member = StaffMember.find_by(id: params[:staff_member_id])
+    @staff_events = @staff_member.events.all
   end
 end
