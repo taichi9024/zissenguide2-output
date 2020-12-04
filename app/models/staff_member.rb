@@ -1,4 +1,5 @@
 class StaffMember < ApplicationRecord
+    has_many :events, class_name: "StaffEvent"
 
     def password=(raw_pass)
         if raw_pass.kind_of?(String)

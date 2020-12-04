@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_033157) do
+ActiveRecord::Schema.define(version: 2020_12_04_131828) do
 
   create_table "admin_members", force: :cascade do |t|
     t.string "email", null: false
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2020_12_04_033157) do
     t.boolean "suspend", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "staff_events", force: :cascade do |t|
+    t.integer "staff_member_id", null: false
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.index ["created_at"], name: "index_staff_events_on_created_at"
+    t.index ["staff_member_id"], name: "index_staff_events_on_staff_member_id"
   end
 
   create_table "staff_members", force: :cascade do |t|
@@ -32,4 +40,5 @@ ActiveRecord::Schema.define(version: 2020_12_04_033157) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "staff_events", "staff_members"
 end

@@ -15,7 +15,7 @@ class Staff::Base < ApplicationController
         end
     end
 
-    TIMELIMIT = 1.minutes
+    TIMELIMIT = 10.minutes
     def time_logout
         if session[:time_id] > TIMELIMIT.ago
             session[:time_id] = Time.current

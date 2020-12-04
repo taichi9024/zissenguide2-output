@@ -1,4 +1,4 @@
-<div class=" mt-3 mb-5">
+<div class=" mt-3">
     <span>ID: <%= @staff_member.id%></span><br>
     <span>email: <%= @staff_member.email%></span><br>
     <span>name: <%= @staff_member.name%></span><br>
@@ -6,3 +6,4 @@
     <span>start_date: <%= @staff_member.start_date%></span><br>
     <span>suspend: <%= @staff_member.suspend%></span><br>
 </div>
+<%= link_to "勤怠情報", admin_staff_member_detail_path(@staff_member), class:"btn btn-primary" %>
