@@ -3,7 +3,7 @@ layout :set_layout
 
 class IpAddressRejected < ActionController::ActionControllerError; end
 
-include CustomError
+# include CustomError
 
 def set_layout
   if params[:controller].match(%r{\A(staff|admin|customer)/})
