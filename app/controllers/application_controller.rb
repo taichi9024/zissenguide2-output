@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
 layout :set_layout
 
-rescue_from StandardError , with: :r500
+class IpAddressRejected < ActionController::ActionControllerError; end
 
-private def r500(e)
-  render "errors/500", status:500
-end
+include CustomError
 
 def set_layout
   if params[:controller].match(%r{\A(staff|admin|customer)/})
