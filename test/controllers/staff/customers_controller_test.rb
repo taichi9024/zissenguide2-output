@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StaffEventTest < ActiveSupport::TestCase
+class Staff::CustomersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

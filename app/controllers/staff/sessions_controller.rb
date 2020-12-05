@@ -9,15 +9,9 @@ class Staff::SessionsController < Staff::Base
     if @form.email.present?
       staff_member = StaffMember.find_by("email = ?", @form.email)  
       Staff::Authenticator.new(staff_member).authenticate(@form.password)
-      session[:staff_id] = staff_member.id
+      session[:id] = staff_member.id
       session[:time_id]  = Time.current
-      logger.debug "#{staff_member.id}"
-      if staff_member.events.create!(type: "ログイン")
-        logger.debug "doneeeeee"
-      else
-        logger.debug "yeeeeeeeet"
-      end
-      logger.debug "#{StaffMember.first.created_at}"
+      staff_member.events.create!(type: "ログイン")
       flash.notice = "ログインしました"
       redirect_to :staff_root
     else
@@ -26,8 +20,8 @@ class Staff::SessionsController < Staff::Base
   end
 
   def destroy
-    current_staff_member.events.create(type:"ログアウト")
-    session.delete([:staff_id])
+    @current_staff_member.events.create(type:"ログアウト")
+    session.delete([:id])
     flash.notice = "ログアウトしました"
     redirect_to :staff_login
   end

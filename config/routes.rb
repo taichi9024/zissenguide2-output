@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :staff do
-    get 'passwords/edit'
-  end
-  namespace :admin do
-    get 'staff_events/index'
-  end
   namespace :admin do
     root 'top#index'
     get "/login" => "sessions#new", as: :login
@@ -23,5 +17,10 @@ Rails.application.routes.draw do
     delete "/session" => "sessions#destroy"
     resource :account , only:[:edit, :update]
     resource :password, only:[:edit, :update]
+    resources :customers
+  end
+
+  namespace :customer do
+    root "top#index"
   end
 end

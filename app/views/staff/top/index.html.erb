@@ -2,8 +2,9 @@
 <p>hoge</p>
 <% if current_staff_member %>
   <p><%= link_to "ログアウト", :staff_session, method: :delete %></p>
+  <p><%= link_to "アカウント情報編集", :edit_staff_account %></p>
+  <p><%= link_to "顧客一覧", :staff_customers %></p>
   <% else %>
   <p><%= link_to "ログイン", :staff_login %></p>
 <% end %>
 
-<%= link_to "アカウント情報編集", :edit_staff_account %>

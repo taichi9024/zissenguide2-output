@@ -3,15 +3,15 @@ class Staff::Base < ApplicationController
     before_action :time_logout
 
     def current_staff_member
-        if session[:staff_id]
-            @current_staff_member ||= StaffMember.find_by(id: session[:staff_id])
+        if session[:id]
+            @current_staff_member ||= StaffMember.find_by(id: session[:id])
         end
     end
 
     def forced_logout
         if current_staff_member && !current_staff_member.active?
             flash.notice = "強制でログアウトです"
-            session.delete(:staff_id)
+            session.delete(:id)
         end
     end
 
@@ -20,7 +20,7 @@ class Staff::Base < ApplicationController
         if session[:time_id] > TIMELIMIT.ago
             session[:time_id] = Time.current
         else
-            session.delete(:staff_id)
+            session.delete(:id)
             session.delete(:time_id)
             flash.notice = "セッション時間超過"
             redirect_to :staff_login

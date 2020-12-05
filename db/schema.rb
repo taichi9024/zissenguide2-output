@@ -10,12 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_131828) do
+ActiveRecord::Schema.define(version: 2020_12_05_173419) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "type"
+    t.string "postal_code"
+    t.string "city"
+    t.string "address1"
+    t.string "address2"
+    t.string "company_name", default: "", null: false
+    t.string "division_name", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
+  end
 
   create_table "admin_members", force: :cascade do |t|
     t.string "email", null: false
     t.string "hash_password", null: false
     t.boolean "suspend", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "name_kana"
+    t.string "gender"
+    t.string "birthday"
+    t.string "hash_password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
