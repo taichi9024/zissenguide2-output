@@ -1,0 +1,7 @@
+<div class="ml-5 mt-5">
+<p>NAME: <%= @customer.name%></p>
+<p>EMAIL: <%= @customer.email%></p>
+<%= @customer.name_kana%>
+<%= @customer.gender%>
+<%= @customer.birthday%>
+<%= link_to "編集", edit_staff_customer_path(@customer), class:"btn btn-primary" %>

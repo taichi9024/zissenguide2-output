@@ -1,0 +1,6 @@
+<%= f.fields_for :customer, f.object.customer do |ff| %>
+    <%= markup do |m| %>
+        p = CustomerFormPresenter.new(ff, self)
+        m << p.gender_field_block
+    <% end %>
+<% end %>

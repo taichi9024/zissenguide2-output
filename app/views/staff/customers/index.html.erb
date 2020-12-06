@@ -1,2 +1,6 @@
-<%= @customers.each do |customer| %>
-    <% end %>
+<%=link_to "新規登録", :new_staff_customer, class:"btn btn-primary" %>
+<div class="mt-3 ml-3">
+<% @customers.each do |customer| %>
+    <%=link_to customer.name, staff_customer_path(customer) %>
+<% end %>
+</div>
